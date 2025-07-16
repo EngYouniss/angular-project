@@ -1,0 +1,34 @@
+
+<div class="container mt-4">
+  <button class="btn btn-primary  mb-2" (click)="goBack()">back</button>
+  <input type="search" name="" class="form-control" #search id="">
+
+  <select name="" id="" class="form-select mb-3" (change)="applyFilter()" [(ngModel)]="selectedCat">
+    <option [ngValue]="0">All Categories</option>
+    <option  *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+
+  </select>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+@for (product of filteredProducts; track $index) {
+    <div class="col">
+    <div class="card " #ColorD>
+      <img src="{{product.image}}" class="card-img-top " style="height: 200px;" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <p class="card-text"><small class="text-muted">Price: {{product.price | currency}}</small></p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary" (click)="addToCart(product)" >
+          Add To Cart
+        </button>
+    </div>
+  </div>
+
+    </div>
+  }
+
+</div>
+</div>
+
+<ng-content></ng-content>
