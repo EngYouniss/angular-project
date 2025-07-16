@@ -10,7 +10,7 @@ import { ɵEmptyOutletComponent } from "@angular/router";
 @Component({
   selector: 'app-all-products',
   standalone: true,
-  imports: [CommonModule, FormsModule, ɵEmptyOutletComponent],
+  imports: [CommonModule, FormsModule],
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.scss'
 })
