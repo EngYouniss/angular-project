@@ -1,25 +1,92 @@
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-
-    <div class="carousel-item active" *ngFor="let product of products">
-      <img src="{{product.image}}" class="d-block w-100 object-fit-contain " style="max-height: 400px;" alt="...">
+<!-- 🌈 شريط التمرير الرئيسي -->
+<header class="container-fluid px-0">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let p of products; let i = index"
+              type="button"
+              data-bs-target="#heroCarousel"
+              [attr.data-bs-slide-to]="i"
+              [class.active]="i === 0"
+              [attr.aria-current]="i === 0 ? 'true' : null"
+              [attr.aria-label]="'Slide ' + (i + 1)">
+      </button>
     </div>
 
+    <div class="carousel-inner">
+      <div *ngFor="let p of products; let i = index"
+           class="carousel-item"
+           [class.active]="i === 0">
+        <img [src]="p.image"
+             alt="Product slide"
+             class="d-block w-100 object-fit-cover"
+             style="height: 420px;">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.description | slice:0:100 }}...</p>
+          <a class="btn btn-primary btn-sm"
+             [routerLink]="['/product', p.id]">
+            Shop Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button"
+            data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<app-all-products>
-<h1>this is all products</h1>
-</app-all-products>
+</header>
+
+<!-- 🛍️ قسم المنتجات -->
+<section class="container py-5">
+  <h2 class="text-center fw-bold mb-5">Latest Products</h2>
+  <app-all-products></app-all-products>
+</section>
+
+<!-- 🗂️ قسم الفئات -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Browse by Category</h2>
+    <div class="row g-4">
+      <div class="col-6 col-md-3" *ngFor="let cat of categories">
+        <div class="card h-100 border-0 shadow-sm text-center hover-shadow">
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <i class="bi bi-tags fw-bold fs-2 text-primary"></i>
+            <h6 class="mt-3">{{ cat.name }}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✨ قسم الميزات -->
+<section class="container py-5">
+  <h2 class="text-center fw-bold mb-4">Why Shop With Us?</h2>
+  <div class="row text-center g-4">
+    <div class="col-md-4">
+      <i class="bi bi-truck fs-1 text-success"></i>
+      <h5 class="mt-3">Fast Shipping</h5>
+      <p class="text-muted">Get your products delivered in record time.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="bi bi-shield-check fs-1 text-success"></i>
+      <h5 class="mt-3">Secure Payments</h5>
+      <p class="text-muted">We offer multiple trusted payment options.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="bi bi-arrow-repeat fs-1 text-success"></i>
+      <h5 class="mt-3">Easy Returns</h5>
+      <p class="text-muted">30‑day hassle‑free returns on all orders.</p>
+    </div>
+  </div>
+</section>
+
+

@@ -51,38 +51,81 @@
             </span>
 
           </button>
+          <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login" (click)="login()"  *ngIf="!getUserStatus()">Login</button>
+          <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login" (click)="logout()"  *ngIf="getUserStatus()">Logout</button>
       </div>
     </div>
   </nav>
 
   <!-- ✅ Modal نافذة الكارت -->
-  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="cartModalLabel">🛒 Your Cart</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" *ngFor="let prod of allCartProducts">
-          <!-- محتوى الكارت -->
-          <div class="card mb-2">
-            <div class="card-body d-flex justify-content-between align-items-center">
-              <div>
-                <h6 class="card-title"></h6>
-                <p class="card-text">{{prod.name}}</p>
-              </div>
-              <span>{{prod.price}}</span>
-            </div>
-          </div>
+  <!-- 🛒 Modal - عربة التسوق -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content border-0 shadow-lg">
 
-          <!-- يمكنك تكرار الكارت هنا -->
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success">Checkout</button>
-        </div>
+      <!-- 🔘 رأس المودال -->
+      <div class="modal-header bg-light">
+        <h5 class="modal-title" id="cartModalLabel">
+          <i class="bi bi-cart-fill me-2 text-success"></i> Your Cart
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
+      <!-- 🔘 جسم المودال -->
+      <div class="modal-body">
+        <!-- 🛍️ منتجات في السلة -->
+        <div class="card mb-3 border-0 shadow-sm" *ngFor="let prod of allCartProducts">
+          <div class="row g-0 align-items-center">
+            <!-- ✅ صورة المنتج -->
+            <div class="col-4">
+              <img [src]="prod.image" class="img-fluid rounded-start" style="height: 100px; object-fit: cover;" alt="{{prod.name}}">
+            </div>
+
+            <!-- ✅ معلومات المنتج -->
+            <div class="col-8">
+              <div class="card-body p-2">
+                <h6 class="card-title mb-1">{{ prod.name }}</h6>
+                <p class="card-text text-muted mb-2">
+                  <small>Price: {{ prod.price | currency }}</small>
+                </p>
+
+                <!-- ✅ تحكم في الكمية + حذف -->
+                <div class="d-flex align-items-center gap-2">
+                  <button class="btn btn-sm btn-outline-secondary" (click)="decreaseQuantity(prod)">
+                    <i class="bi bi-dash"></i>
+                  </button>
+
+                  <span class="fw-bold">{{ prod.quantity }}</span>
+
+                  <button class="btn btn-sm btn-outline-secondary" (click)="increaseQuantity(prod)">
+                    <i class="bi bi-plus"></i>
+                  </button>
+
+                  <button class="btn btn-sm btn-outline-danger ms-2" (click)="removeFromCart(prod)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ✅ السعر الإجمالي -->
+        <h5 class="text-end mt-4">
+          Total:
+          <span class="text-primary">{{ getTotalPrice() | currency }}</span>
+        </h5>
+      </div>
+
+      <!-- 🔘 تذييل -->
+      <div class="modal-footer bg-light">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Checkout</button>
+      </div>
+
     </div>
   </div>
+</div>
+
 </div>

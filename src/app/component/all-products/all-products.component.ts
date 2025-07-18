@@ -1,56 +1,38 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { IallProducts } from '../../modules/iall-products';
-import { CommonModule, Location } from '@angular/common';
-import { ICategories } from '../../modules/icategories';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { StaticProductServiceService } from '../../services/static-product-service.service';
 import { CartService } from '../../services/cart.service';
-import { ɵEmptyOutletComponent } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
+import { ApiServiceService } from '../../services/api-service.service';
+import { Iproducts } from '../../modules/iproducts';
 
 @Component({
   selector: 'app-all-products',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterModule],
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.scss'
 })
 export class AllProductsComponent implements OnInit {
-  selectedCat: number = 0;
-  constructor(private _StaticProductServiceService: StaticProductServiceService,
-     private _CartService: CartService,
-    private _Location:Location) {
 
-  }
-  filteredProducts: IallProducts[] = [];
-  categories: ICategories[] = [];
+
+  constructor(private _apiService: ApiServiceService,private _router:Router,private _cartService:CartService) { }
+  products: Iproducts[] = [] as Iproducts[];
   ngOnInit(): void {
-    this.categories = this._StaticProductServiceService.categories;
-    this.applyFilter();
+    this._apiService.getAllProducts().subscribe({
+      next: (data) => this.products = data,}
+    );
+  }
+  loadProducts(): void {
+    this._apiService.getAllProducts().subscribe({
+      next: (data) => this.products = data,}
+    );
   }
 
-  applyFilter(): void {
-    this._StaticProductServiceService.applyFilter(this.selectedCat);
-    this.filteredProducts = this._StaticProductServiceService.filteredProducts;
+  addToCart(product: Iproducts) {
+    return this._cartService.addToCart(product);
   }
 
 
-  @ViewChildren('ColorD') colord!: QueryList<ElementRef>;
-  changecol(index: number): void {
-    this.colord.toArray()[index].nativeElement.style.backgroundColor = 'red';
-  }
 
-  addToCart(product: IallProducts): void {
-
-    this._CartService.addToCart(product);
-    console.log(product);
-  }
-  goBack(): void {
-    this._Location.back();
-  }
-
-  @ViewChild('search') searchIn!:ElementRef;
-
-  ngAfterViewInit():void{
-    this.searchIn.nativeElement.focus();
-  }
 }

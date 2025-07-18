@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Iproducts } from '../../modules/iproducts';
 import { AllProductsComponent } from '../all-products/all-products.component';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AllProductsComponent,CommonModule],
+  imports: [AllProductsComponent,CommonModule,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -46,7 +47,11 @@ products:Iproducts[]=[
 categories=[
   {id:1,name:'Phones'},
   {id:2,name:'Tablets'},
-  {id:3,name:'Smartwatches'}
+  {id:3,name:'Smartwatches'},
+  {id:4,name:'Laptops'},
 ];
+today = new Date();           // للتذييل
+
+
 }
 

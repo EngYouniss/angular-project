@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "mike",
+      "password": "mike"
+    },
+    {
+      "id": 2,
+      "username": "joe",
+      "password": "joe"
+    },
+    {
+      "id": 3,
+      "username": "bob",
+      "password": "bob"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Iphone",
+      "price": 1000,
+      "image": "https://picsum.photos/200/300",
+      "description": "High performance laptop with 16GB RAM and 512GB SSD.",
+      "category_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S21 Ultra",
+      "price": 500,
+      "image": "https://picsum.photos/200/300",
+      "description": "Latest smartphone with advanced features and sleek design.",
+      "category_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Macbook Pro",
+      "price": 2000,
+      "image": "https://picsum.photos/200/300",
+      "description": "Powerful laptop with 32GB RAM and 1TB SSD.",
+      "category_id": 1
+    },
+    {
+      "id": 4,
+      "name": "Ipad",
+      "price": 800,
+      "image": "https://picsum.photos/200/300",
+      "description": "Portable tablet with a vibrant display and long battery life.",
+      "category_id": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Laptops",
+      "description": "Laptops category"
+    },
+    {
+      "id": 2,
+      "name": "Smartphones",
+      "description": "Smartphones category"
+    }
+  ]
+
+}
