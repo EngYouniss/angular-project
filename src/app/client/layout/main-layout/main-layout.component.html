@@ -1,4 +1,4 @@
-<!-- 🌈 شريط التمرير الرئيسي -->
+<app-navbar></app-navbar>
 <header class="container-fluid px-0">
   <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -42,15 +42,11 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-</header>
+</header> -->
 
-<!-- 🛍️ قسم المنتجات -->
-<section class="container py-5">
-  <h2 class="text-center fw-bold mb-5">Latest Products</h2>
-  <app-all-products></app-all-products>
-</section>
+<router-outlet></router-outlet>
 
-<!-- 🗂️ قسم الفئات -->
+
 <section class="bg-light py-5">
   <div class="container">
     <h2 class="text-center fw-bold mb-4">Browse by Category</h2>
@@ -67,7 +63,6 @@
   </div>
 </section>
 
-<!-- ✨ قسم الميزات -->
 <section class="container py-5">
   <h2 class="text-center fw-bold mb-4">Why Shop With Us?</h2>
   <div class="row text-center g-4">
@@ -89,4 +84,4 @@
   </div>
 </section>
 
-
+<app-footer></app-footer>

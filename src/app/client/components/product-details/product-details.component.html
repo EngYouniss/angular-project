@@ -1,7 +1,6 @@
 <div class="container py-5" *ngIf="productDetails">
   <div class="row justify-content-center">
 
-    <!-- صورة المنتج -->
     <div class="col-12 col-md-6">
       <div class="card shadow-sm border-0">
         <img [src]="productDetails.image"
@@ -11,7 +10,6 @@
       </div>
     </div>
 
-    <!-- تفاصيل المنتج -->
     <div class="col-12 col-md-6 mt-4 mt-md-0">
       <div class="card shadow-sm border-0 h-100 p-4 d-flex flex-column">
 
@@ -23,12 +21,10 @@
           {{ productDetails.price | currency }}
         </h4>
 
-        <!-- وصف المنتج -->
         <p class="card-text text-muted flex-grow-1" style="line-height: 1.6; font-size: 1rem;">
           {{ productDetails.description || 'No description available.' }}
         </p>
 
-        <!-- زر إضافة للسلة -->
         <button class="btn btn-success btn-lg mt-4 align-self-start" (click)="addToCart()">
           <i class="bi bi-cart-plus me-2"></i>
           Add to Cart

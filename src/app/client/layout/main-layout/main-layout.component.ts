@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { Iproducts } from '../../modules/iproducts';
-import { AllProductsComponent } from '../all-products/all-products.component';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import {  RouterLink, RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "../components/navbar/navbar.component";
+import { FooterComponent } from "../components/footer/footer.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AllProductsComponent,CommonModule,RouterLink],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  imports: [CommonModule, NavbarComponent, FooterComponent, RouterOutlet,RouterLink],
+  templateUrl: './main-layout.component.html',
+  styleUrl: './main-layout.component.scss'
 })
 export class HomeComponent {
 products:Iproducts[]=[

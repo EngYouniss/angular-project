@@ -48,6 +48,166 @@
       "image": "https://picsum.photos/200/300",
       "description": "Portable tablet with a vibrant display and long battery life.",
       "category_id": 2
+    },
+    {
+      "id": 5,
+      "name": "Smartwatch",
+      "price": 300,
+      "image": "https://picsum.photos/200/300",
+      "description": "Smartwatch with advanced features and long battery life.",
+      "category_id": 3
+    },
+    {
+      "id": "3797",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+    {
+      "id": "6a09",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+    {
+      "id": "033f",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+    {
+      "id": "8cc8",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+    {
+      "id": "85b8",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+    {
+      "id": "5b07",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+    {
+      "id": "083f",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+    {
+      "id": "d5c7",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+    {
+      "id": "15b2",
+      "name": "",
+      "price": 0,
+      "image": "",
+      "description": "",
+      "category_id": 0
+    },
+
+
+    {
+      "id": "6f1a",
+      "name": "ali",
+      "price": 32,
+      "category_id": "1",
+      "description": "sd",
+      "image": "C:\\fakepath\\22fff.png"
+    },
+ 
+
+    {
+      "id": "2e83",
+      "name": "ارنب",
+      "price": 3,
+      "category_id": "2",
+      "description": "we"
+    },
+
+    {
+      "id": "8579",
+      "name": "laptop 55",
+      "price": 344,
+      "category_id": "1",
+      "image": "C:\\fakepath\\22fff.png",
+      "description": "sdds"
+    },
+    {
+      "id": "8579",
+      "name": "laptop 55",
+      "price": 344,
+      "category_id": "1",
+      "image": "C:\\fakepath\\22fff.png",
+      "description": "sdds"
+    },
+    {
+      "id": "02ee"
+    },
+    {
+      "id": "02ee"
+    },
+    {
+      "id": "ba51",
+      "name": "laptop 55",
+      "price": 3,
+      "category_id": "2",
+      "image": "C:\\fakepath\\22fff.png",
+      "description": "ewewe"
+    },
+    {
+      "id": "09ab",
+      "name": "laptop 55",
+      "price": 3,
+      "category_id": "1",
+      "image": "C:\\fakepath\\22fff.png",
+      "description": "wewew"
+    },
+    {
+      "id": "8702",
+      "name": "laptop 55",
+      "price": 3,
+      "category_id": "1",
+      "image": "C:\\fakepath\\22fff.png",
+      "description": "wewew"
+    },
+    {
+      "id": "9d9c",
+      "name": "laptop 55",
+      "price": 3,
+      "category_id": "1",
+      "image": "C:\\fakepath\\22fff.png",
+      "description": "wew"
+    },
+    {
+      "id": "8b0b",
+      "name": "laptop 55",
+      "price": 33232,
+      "category_id": "2"
     }
   ],
   "categories": [
@@ -60,7 +220,11 @@
       "id": 2,
       "name": "Smartphones",
       "description": "Smartphones category"
+    },
+    {
+      "id": 3,
+      "name": "Tablets",
+      "description": "Tablets category"
     }
   ]
-
 }

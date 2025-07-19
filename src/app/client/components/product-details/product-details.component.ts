@@ -10,7 +10,7 @@ import { CartService } from '../../services/cart.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.scss'
+  styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
   constructor(private _apiService: ApiServiceService, private _router: ActivatedRoute,private _cartService:CartService) { }
@@ -22,7 +22,9 @@ ngOnInit(): void {
 
 }
   loadPoduct() {
+
     const id = Number(this._router.snapshot.paramMap.get('id'));
+    console.log(id);
     this._apiService.getProductById(id).subscribe({
       next: (data) => this.productDetails = data
     })

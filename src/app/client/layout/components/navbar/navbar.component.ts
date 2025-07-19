@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../../services/cart.service';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../services/auth.service';
-import { Iproducts } from '../../modules/iproducts';
+import { AuthService } from '../../../services/auth.service';
+import { Iproducts } from '../../../modules/iproducts';
+import { ApiServiceService } from '../../../services/api-service.service';
+import { ICategories } from '../../../modules/icategories';
 
 @Component({
   selector: 'app-navbar',
@@ -16,10 +18,11 @@ export class NavbarComponent implements OnInit {
 
   isLogged: boolean = false;
   allCartProducts: Iproducts[] = [];
-
+  allCat: ICategories[] = [];
   constructor(
     private _cartService: CartService,
-    private _AuthService: AuthService
+    private _AuthService: AuthService,
+    private _apiService: ApiServiceService,
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +31,12 @@ export class NavbarComponent implements OnInit {
     });
 
     this.getAllCart();
+    this.getAllCategories();
+  }
+  getAllCategories():void {
+     this._apiService.getAllCategories().subscribe({
+      next:(cat)=>this.allCat=cat,
+    })
   }
 
   getAllCart(): void {
@@ -35,7 +44,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getUserStatus(): boolean {
-    return !!this._AuthService.getUserStatus(); 
+    return !!this._AuthService.getUserStatus();
   }
 
   login(): void {
