@@ -23,7 +23,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" *ngFor="let cat of allCat">{{cat.name}}</a></li>
+              <li><a class="dropdown-item" routerLink="/product" href="#" *ngFor="let cat of allCat">{{cat.name}}</a></li>
 
             </ul>
           </li>
@@ -49,8 +49,8 @@
             </span>
 
           </button>
-          <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login" (click)="login()"  *ngIf="!getUserStatus()">Login</button>
-          <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login" (click)="logout()"  *ngIf="getUserStatus()">Logout</button>
+          <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login"  >Login</button>
+          <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login" >Logout</button>
       </div>
     </div>
   </nav>

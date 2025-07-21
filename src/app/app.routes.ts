@@ -8,15 +8,18 @@ import { ProductDetailsComponent } from './client/components/product-details/pro
 import { MainLayoutComponent } from './admin/layout/main-layout/main-layout.component';
 
 export const routes: Routes = [
+      { path: 'login', component: LoginComponent },
+      {path:'**',redirectTo:'product',pathMatch:'full'},
+      { path: 'home', component: HomeComponent },
   {
+
     path: '', component: HomeComponent, children: [
       { path: 'product', component: AllProductsComponent, canActivate: [authGuard] },
       { path: 'category', component: CategoriesComponent },
-      { path: 'login', component: LoginComponent },
       { path: 'product/:id', component: ProductDetailsComponent },
     ]
-  },
 
+  },
   {
     path: 'admin', component: MainLayoutComponent, children: [
       {

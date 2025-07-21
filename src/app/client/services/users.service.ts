@@ -8,10 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-
+  user:IUsers={username:'',email:'',password:''};
   constructor(private _http:HttpClient) { }
   getAllUsers():Observable<IUsers[]>{
   return this._http.get<IUsers[]>(environment.baseUrl+'/users');
   }
-
+  // getUserByCredentials(email:string,password:string):Observable<IUsers>{
+  //   return this._http.get<IUsers>(`${environment.baseUrl}/users?email=${email}&password=${password}`);
+  // }
 }

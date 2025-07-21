@@ -47,9 +47,9 @@ export class NavbarComponent implements OnInit {
     return !!this._AuthService.getUserStatus();
   }
 
-  login(): void {
-    this._AuthService.login();
-  }
+  // login(): void {
+  //   this._AuthService.login();
+  // }
 
   logout(): void {
     this._AuthService.logout();

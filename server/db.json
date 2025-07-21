@@ -3,12 +3,14 @@
     {
       "id": 1,
       "username": "mike",
-      "password": "mike"
+      "password": "mike",
+      "email": "mike@gmail.com"
     },
     {
       "id": 2,
       "username": "joe",
-      "password": "joe"
+      "password": "joe",
+      "email": "joe@gmail.com"
     },
     {
       "id": 3,
@@ -139,7 +141,7 @@
       "description": "sd",
       "image": "C:\\fakepath\\22fff.png"
     },
- 
+
 
     {
       "id": "2e83",
