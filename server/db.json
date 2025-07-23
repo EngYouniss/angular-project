@@ -1,26 +1,26 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "mike",
       "password": "mike",
       "email": "mike@gmail.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "joe",
       "password": "joe",
       "email": "joe@gmail.com"
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "bob",
       "password": "bob"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Iphone",
       "price": 1000,
       "image": "https://picsum.photos/200/300",
@@ -28,7 +28,7 @@
       "category_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Samsung Galaxy S21 Ultra",
       "price": 500,
       "image": "https://picsum.photos/200/300",
@@ -36,7 +36,7 @@
       "category_id": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Macbook Pro",
       "price": 2000,
       "image": "https://picsum.photos/200/300",
@@ -44,7 +44,7 @@
       "category_id": 1
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Ipad",
       "price": 800,
       "image": "https://picsum.photos/200/300",
@@ -52,7 +52,7 @@
       "category_id": 2
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Smartwatch",
       "price": 300,
       "image": "https://picsum.photos/200/300",
@@ -131,8 +131,6 @@
       "description": "",
       "category_id": 0
     },
-
-
     {
       "id": "6f1a",
       "name": "ali",
@@ -141,8 +139,6 @@
       "description": "sd",
       "image": "C:\\fakepath\\22fff.png"
     },
-
-
     {
       "id": "2e83",
       "name": "ارنب",
@@ -150,7 +146,6 @@
       "category_id": "2",
       "description": "we"
     },
-
     {
       "id": "8579",
       "name": "laptop 55",
@@ -210,21 +205,64 @@
       "name": "laptop 55",
       "price": 33232,
       "category_id": "2"
+    },
+    {
+      "id": "5505",
+      "name": "sdds",
+      "price": 3232,
+      "image": "sds",
+      "description": "ada",
+      "category_id": "2"
+    },
+    {
+      "id": "251e"
+    },
+    {
+      "id": "c956",
+      "name": "ahmed",
+      "price": 3222,
+      "image": "sdsdsdsdsdsd",
+      "description": "vcxcvxcvxcxv",
+      "category_id": "3"
+    },
+    {
+      "id": "00b2",
+      "name": "younis",
+      "price": 788,
+      "image": "تايس",
+      "description": "يستنا",
+      "category_id": "32"
+    },
+    {
+      "id": "a1ca",
+      "name": "younis",
+      "price": 788,
+      "image": "تايس",
+      "description": "يستنا",
+      "category_id": "32"
+    },
+    {
+      "id": "dcf5",
+      "name": "younis",
+      "price": 788,
+      "image": "تايس",
+      "description": "يستنا",
+      "category_id": "32"
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Laptops",
       "description": "Laptops category"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Smartphones",
       "description": "Smartphones category"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Tablets",
       "description": "Tablets category"
     }

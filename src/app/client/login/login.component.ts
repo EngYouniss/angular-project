@@ -13,6 +13,7 @@ import { IUsers } from '../modules/i-users';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+   errorMessage: string = '';
   user: IUsers = {
     username: '',
     email: '',
@@ -28,7 +29,7 @@ login() {
 
         this._routerService.navigateByUrl('/home');
       } else {
-        console.log('Login failed');
+        this.errorMessage = 'Invalid email or password';
       }
     },
     error: (err) => {
@@ -38,5 +39,4 @@ login() {
 }
 
 
-errorMessage: string = '';
 }
