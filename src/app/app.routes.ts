@@ -10,6 +10,7 @@ import { AddProductComponent } from './admin/components/products/add-product/add
 import { NotFoundComponent } from './admin/components/not-found/not-found.component';
 import { HomeComponent } from './client/layout/main-layout/main-layout.component';
 import { AddCategoryComponent } from './admin/components/Categories/add-category/add-category.component';
+import { AboutComponent } from './client/components/about/about.component';
 
 export const routes: Routes = [
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
       { path: 'product', component: AllProductsComponent },
       { path: 'category', component: CategoriesComponent },
       { path: 'product/:id', component: ProductDetailsComponent },
+      {path:'about',component:AboutComponent}
     ]
 
   },
