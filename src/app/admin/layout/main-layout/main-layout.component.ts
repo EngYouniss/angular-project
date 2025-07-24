@@ -3,6 +3,7 @@ import { NavbarComponent } from "../../../admin/layout/components/navbar/navbar.
 import { FooterComponent } from "../../../admin/layout/components/footer/footer.component";
 import { SidebarComponent } from "../components/sidebar/sidebar.component";
 import { RouterModule } from "@angular/router";
+import { HomeAdminComponent } from '../../components/home/home-admin.component';
 
 @Component({
   selector: 'app-main-layout',

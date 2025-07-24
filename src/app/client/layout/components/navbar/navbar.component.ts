@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../../services/cart.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
 import { Iproducts } from '../../../modules/iproducts';
 import { ApiServiceService } from '../../../services/api-service.service';
@@ -10,7 +10,7 @@ import { ICategories } from '../../../modules/icategories';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule,NgIf],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
@@ -26,12 +26,15 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._AuthService.getAuthObservable().subscribe({
-      next: (status) => this.isLogged = status
-    });
+    this.login();
 
     this.getAllCart();
     this.getAllCategories();
+  }
+  login(): void {
+     this._AuthService.getAuthObservable().subscribe({
+      next: (status) => this.isLogged = status
+    });
   }
   getAllCategories():void {
      this._apiService.getAllCategories().subscribe({

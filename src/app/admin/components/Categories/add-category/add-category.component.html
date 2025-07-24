@@ -1,0 +1,78 @@
+<div class="container mt-4">
+
+  <!-- Header with button -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="fw-bold">📦 Products</h3>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">
+      ➕ Add Product
+    </button>
+  </div>
+
+  <!-- Products Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (category of categories; track $index) {
+        <tr>
+          <td>{{ category.id }}</td>
+          <td>{{ category.name }}</td>
+          <td>{{ category.description }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <form class="modal-content" [formGroup]="CategoryForm" (submit)="addCategory()">
+    <p class="text-center text-success fw-bold">{{errorMessage}}</p>
+        <h1>{{CategoryForm.get('name')?.errors|json}}</h1>
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Add New Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" required formControlName="name" >
+        </div>
+        @if (name?.touched && name?.invalid) {
+        <div>
+          @if(name?.errors?.['required']){
+<p class="text-danger">
+            this field is required
+          </p>
+          }
+        </div>}
+        @for (descr of description.controls; track $index) { <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" class="form-control" name="description" required formControlName="description">
+        </div>}
+
+
+
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="CategoryForm.invalid">Save Category</button>
+        <button type="button" class="btn btn-danger" (click)="addform()" >+</button>
+      </div>
+    </form>
+  </div>
+</div>

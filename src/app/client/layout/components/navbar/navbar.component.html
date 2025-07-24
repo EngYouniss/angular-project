@@ -49,7 +49,7 @@
             </span>
 
           </button>
-          <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login"  >Login</button>
+          <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login"  *ngIf="isLogged">Login</button>
           <button type="button" class="btn btn-outline-primary ms-2" routerLink="/login" >Logout</button>
       </div>
     </div>
