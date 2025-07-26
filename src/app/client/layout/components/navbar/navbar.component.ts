@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CartService } from '../../../services/cart.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
@@ -19,10 +19,13 @@ export class NavbarComponent implements OnInit {
   isLogged: boolean = false;
   allCartProducts: Iproducts[] = [];
   allCat: ICategories[] = [];
+  catId!:number
   constructor(
     private _cartService: CartService,
     private _AuthService: AuthService,
     private _apiService: ApiServiceService,
+    private _router:ActivatedRoute,
+    private _routerService: Router
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +33,8 @@ export class NavbarComponent implements OnInit {
 
     this.getAllCart();
     this.getAllCategories();
+
+
   }
   login(): void {
      this._AuthService.getAuthObservable().subscribe({
@@ -41,6 +46,7 @@ export class NavbarComponent implements OnInit {
       next:(cat)=>this.allCat=cat,
     })
   }
+
 
   getAllCart(): void {
     this._cartService.getAllCart().subscribe(prod => this.allCartProducts = prod);
@@ -78,5 +84,10 @@ getTotalPrice(): number {
   return this.allCartProducts.reduce((total, item) =>
     total + (item.price * (item.quantity || 1)), 0);
 }
+
+getProducts(id:number){
+    this._routerService.navigate(['/prodCat'],{queryParams:{id}});
+}
+
 
 }

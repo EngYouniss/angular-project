@@ -23,7 +23,9 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/product" href="#" *ngFor="let cat of allCat">{{cat.name}}</a></li>
+              <li><a class="dropdown-item" (click)="getProducts(category.id)" *ngFor="let category of allCat " >{{category.name}}</a></li>
+              <li><a class="dropdown-item" href="#" >Taplet</a></li>
+              <li><a class="dropdown-item" href="#" >Laptop</a></li>
 
             </ul>
           </li>

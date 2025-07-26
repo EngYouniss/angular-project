@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule
+    
+  ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })

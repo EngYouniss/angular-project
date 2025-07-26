@@ -11,38 +11,40 @@ import { NotFoundComponent } from './admin/components/not-found/not-found.compon
 import { HomeComponent } from './client/layout/main-layout/main-layout.component';
 import { AddCategoryComponent } from './admin/components/Categories/add-category/add-category.component';
 import { AboutComponent } from './client/components/about/about.component';
+import { ProductsByCategoryComponent } from './client/components/products-by-category/products-by-category.component';
 
 export const routes: Routes = [
 
-      { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'details/:id', component: ProductDetailsComponent },
+  { path: 'prodCat', component: ProductsByCategoryComponent },
   {
 
     path: '', component: HomeComponent, children: [
       { path: 'product', component: AllProductsComponent },
       { path: 'category', component: CategoriesComponent },
-      { path: 'product/:id', component: ProductDetailsComponent },
-      {path:'about',component:AboutComponent}
+      { path: 'about', component: AboutComponent }
     ]
 
   },
-        { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
 
   {
     path: 'admin', component: MainLayoutComponent, children: [
       {
-                path: '', component: HomeAdminComponent
+        path: '', component: HomeAdminComponent
 
       },
       {
         path: 'addproduct', component: AddProductComponent
       },
       {
-        path:'add-category',component:AddCategoryComponent
+        path: 'add-category', component: AddCategoryComponent
       }
 
 
     ]
   },
-              {path:'**',component:NotFoundComponent  },
+  { path: '**', component: NotFoundComponent },
 
 ];

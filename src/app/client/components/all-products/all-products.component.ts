@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NumberValueAccessor } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { Router, RouterModule } from "@angular/router";
 import { ApiServiceService } from '../../services/api-service.service';
@@ -9,7 +9,7 @@ import { Iproducts } from '../../modules/iproducts';
 @Component({
   selector: 'app-all-products',
   standalone: true,
-  imports: [CommonModule, FormsModule,RouterModule],
+  imports: [CommonModule, FormsModule,RouterModule,],
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.scss'
 })
@@ -33,6 +33,8 @@ export class AllProductsComponent implements OnInit {
     return this._cartService.addToCart(product);
   }
 
-
+  viewDetails(id:number|undefined){
+    this._router.navigateByUrl(`details/${id}`);
+  }
 
 }
