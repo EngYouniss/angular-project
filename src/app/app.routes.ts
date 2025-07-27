@@ -12,6 +12,7 @@ import { HomeComponent } from './client/layout/main-layout/main-layout.component
 import { AddCategoryComponent } from './admin/components/Categories/add-category/add-category.component';
 import { AboutComponent } from './client/components/about/about.component';
 import { ProductsByCategoryComponent } from './client/components/products-by-category/products-by-category.component';
+import { UsersComponent } from './admin/components/users/users.component';
 
 export const routes: Routes = [
 
@@ -40,6 +41,9 @@ export const routes: Routes = [
       },
       {
         path: 'add-category', component: AddCategoryComponent
+      },
+      {
+        path:'users',component:UsersComponent
       }
 
 
