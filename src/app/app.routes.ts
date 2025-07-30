@@ -13,6 +13,7 @@ import { AddCategoryComponent } from './admin/components/Categories/add-category
 import { AboutComponent } from './client/components/about/about.component';
 import { ProductsByCategoryComponent } from './client/components/products-by-category/products-by-category.component';
 import { UsersComponent } from './admin/components/users/users.component';
+import { RegisterComponent } from './client/components/register/register.component';
 
 export const routes: Routes = [
 
@@ -28,7 +29,6 @@ export const routes: Routes = [
     ]
 
   },
-  { path: 'login', component: LoginComponent },
 
   {
     path: 'admin', component: MainLayoutComponent, children: [
@@ -49,6 +49,8 @@ export const routes: Routes = [
 
     ]
   },
+    { path: 'login', component: LoginComponent },
+  {path:'register',component:RegisterComponent},
   { path: '**', component: NotFoundComponent },
 
 ];

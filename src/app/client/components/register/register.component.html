@@ -1,0 +1,78 @@
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="card shadow w-100" style="max-width: 400px;">
+    <div class="card-body">
+      <h3 class="card-title text-center mb-4"> Create Account</h3>
+
+      <form [formGroup]="form" (submit)="newUser()">
+        <div class="row ">
+             <div class="mb-3">
+          <label for="username" class="form-label">Username :</label>
+          <input type="text" id="username" class="form-control" placeholder="Enter your username" formControlName="username">
+          @if (isInvalid('username','required'))
+          {
+          <small class="ms-2 text-danger">username is required</small>
+          }
+          @if (isInvalid('username','minlength'))
+          {
+          <small class="ms-2 text-danger">username must be 8 charachters</small>
+
+          }
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" id="email" class="form-control" placeholder="Enter your email" formControlName="email">
+          @if (isInvalid('email','required'))
+          {
+          <small class="ms-2 text-danger">email is required</small>
+          }
+        </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password"
+            formControlName="password" required>
+          @if (isInvalid('password','required'))
+          {
+          <small class="ms-2 text-danger">password is required</small>
+          }
+          @if (isInvalid('password','minlength')) {
+          <small class="ms-2 text-danger">password must be 8 charachters</small>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" id="ConfirmPassword" class="form-control" placeholder="Enter confirm password"
+            name="confirmPassword" formControlName="confirmPassword" required >
+          @if (isInvalid('confirmPassword','mustMatch'))
+          {
+          <small class="ms-2 text-danger">confirm password not match</small>
+
+          }
+
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" [disabled]="form.invalid" class="btn btn-primary">
+            Register
+          </button>
+        </div>
+        <div>
+          <!-- @if(errorMessage){
+        <div class="text-center text-danger mt-3 ">
+          {{ errorMessage }}
+        </div>
+      } -->
+        </div>
+      </form>
+
+
+      <div class="text-center mt-3">
+        <a href="#" class="text-decoration-none small">Forgot password?</a><br>
+        <span class="small">Don't have an account? <a href="#">Sign up</a></span>
+      </div>
+    </div>
+  </div>
+</div>

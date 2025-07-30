@@ -7,7 +7,7 @@
       <label for="username" class="form-label"> User Name</label>
       <input type="text" name="username" [(ngModel)]="user.username" #username="ngModel" class="form-control" id="username"
        aria-describedby="nameHelp" required  [ngModelOptions]="{updateOn:'blur'}">
-       @if (username.errors?.['required']) {
+       @if (username.errors?.['required']&& username.touched) {
          <div class="text-danger">
         username is required
       </div>
