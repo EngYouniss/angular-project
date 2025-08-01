@@ -23,34 +23,40 @@ export const routes: Routes = [
   {
 
     path: '', component: HomeComponent, children: [
-      { path: 'product', component: AllProductsComponent },
-      { path: 'category', component: CategoriesComponent },
-      { path: 'about', component: AboutComponent }
+      {
+  path: 'product',
+  loadComponent: () =>
+    import('./client/components/all-products/all-products.component')
+      .then(c => c.AllProductsComponent)
+},
+
+{ path: 'category', component: CategoriesComponent },
+{ path: 'about', component: AboutComponent }
     ]
 
   },
 
-  {
-    path: 'admin', component: MainLayoutComponent, children: [
-      {
-        path: '', component: HomeAdminComponent
+{
+  path: 'admin', component: MainLayoutComponent, children: [
+    {
+      path: '', component: HomeAdminComponent
 
-      },
-      {
-        path: 'addproduct', component: AddProductComponent
-      },
-      {
-        path: 'add-category', component: AddCategoryComponent
-      },
-      {
-        path:'users',component:UsersComponent
-      }
+    },
+    {
+      path: 'addproduct', component: AddProductComponent
+    },
+    {
+      path: 'add-category', component: AddCategoryComponent
+    },
+    {
+      path: 'users', component: UsersComponent
+    }
 
 
-    ]
-  },
-    { path: 'login', component: LoginComponent },
-  {path:'register',component:RegisterComponent},
-  { path: '**', component: NotFoundComponent },
+  ]
+},
+{ path: 'login', component: LoginComponent },
+{ path: 'register', component: RegisterComponent },
+{ path: '**', component: NotFoundComponent },
 
 ];

@@ -15,5 +15,7 @@
   ],
   "angularCompilerOptions": {
     "controlFlow": true,
+        "enableDeferBlockSyntax": true
+
   }
 }

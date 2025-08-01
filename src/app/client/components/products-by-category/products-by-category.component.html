@@ -2,8 +2,12 @@
 <app-navbar></app-navbar>
 <div class="container py-4">
   <h2 class="mb-4 text-center fw-bold border-bottom pb-2">Our Products</h2>
-
-  <div class="row g-4">
+<div class="d-flex justify-content-center mt-3">
+  <label for="" class="btn btn-primary me-1" (click)="searchProduct()">Search</label>
+  <input type="search" class="form-control w-50 d-flex " [(ngModel)]="search" (ngModelChange)="searchProduct()" >
+</div>
+@if (products) {
+   <div class="row g-4 mt-3">
     <div class="col-12 col-sm-6 col-md-4" *ngFor="let product of products">
       <div class="card h-100 border-0 shadow-sm hover-shadow transition">
 
@@ -41,4 +45,11 @@
       </div>
     </div>
   </div>
+}
+
+  @else {
+    <div class="alert alert-danger">
+      {{errorMessage}}
+    </div>
+  }
 </div>

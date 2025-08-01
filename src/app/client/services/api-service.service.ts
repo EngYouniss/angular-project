@@ -33,4 +33,8 @@ return this._httpClient.get<Iproducts[]>(`${environment.baseUrl}/products?catego
     addProduct(newProduct:Iproducts):Observable<Iproducts>{
 return this._httpClient.post<Iproducts>(environment.baseUrl+'/products',newProduct);
     }
+
+    search(item:string):Observable<Iproducts[]>{
+      return this._httpClient.get<Iproducts[]>(`${environment.baseUrl}/products?name=${item}`)
+    }
 }

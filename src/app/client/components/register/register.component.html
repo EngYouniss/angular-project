@@ -48,7 +48,7 @@
             name="confirmPassword" formControlName="confirmPassword" required >
           @if (isInvalid('confirmPassword','mustMatch'))
           {
-          <small class="ms-2 text-danger">confirm password not match</small>
+          <small class="ms-2 text-danger" routerLink="home">confirm password not match</small>
 
           }
 

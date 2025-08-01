@@ -9,7 +9,7 @@ import { Iproducts } from '../../modules/iproducts';
 @Component({
   selector: 'app-all-products',
   standalone: true,
-  imports: [CommonModule, FormsModule,RouterModule,],
+  imports: [CommonModule, FormsModule,RouterModule],
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.scss'
 })
