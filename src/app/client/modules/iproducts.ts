@@ -5,6 +5,6 @@ export interface Iproducts {
   image:string;
   description:string;
   'category_id'?: number;
-    quantity?: number; // ✅ أضف هذا
+    quantity?: number; // 
 
 }

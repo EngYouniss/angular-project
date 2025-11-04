@@ -1,0 +1,25 @@
+<div class="table-responsive">
+<app-add-product></app-add-product>
+  <table class="table table-bordered table-hover mt-3 align-middle text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Image</th>
+          <th>Description</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of dummyProduct; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ product.id }}</td>
+          <td>{{ product.title }}</td>
+          <td><img  [src]="product.thumbnail" width="60" height="40" style="object-fit: cover;"></td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.category }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

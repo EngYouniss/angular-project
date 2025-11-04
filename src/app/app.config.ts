@@ -7,9 +7,10 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { sendEmailInterceptor } from './client/interceptors/send-email.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LoadingInterceptorService } from './client/interceptors/loading-interceptor.service';
+import { apiInterceptor } from './admin/interceptors/api.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideHttpClient(withFetch(),withInterceptors([sendEmailInterceptor,LoadingInterceptorService])), 
+  providers: [provideRouter(routes),provideHttpClient(withFetch(),withInterceptors([sendEmailInterceptor,LoadingInterceptorService,apiInterceptor])),
     provideAnimations()
 ],
 };

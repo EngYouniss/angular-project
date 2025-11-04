@@ -42,6 +42,7 @@ export const routes: Routes = [
       path: '', component: HomeAdminComponent
 
     },
+    
     {
       path: 'addproduct', component: AddProductComponent
     },

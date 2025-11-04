@@ -5,3 +5,12 @@ export interface Iproduct {
   description:string
   category_id:number
 }
+
+
+export interface IdummyProducts{
+  id:number,
+  title:string,
+  description:string,
+  category:string,
+  thumbnail:string,
+}

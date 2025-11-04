@@ -8,37 +8,12 @@
     </button>
   </div>
 
-  <!-- Products Table -->
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover align-middle text-center">
-      <thead class="table-dark">
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Image</th>
-          <th>Description</th>
-          <th>Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.price }}</td>
-          <td><img [src]="product.image" width="60" height="40" style="object-fit: cover;"></td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.category_id }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </div>
 
 <!-- Add Product Modal -->
 <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form (submit)="addProduct(product)" class="modal-content">
+    <form (submit)="addProduct()" [formGroup]="form" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title fw-bold">Add New Product</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -48,25 +23,25 @@
 
         <div class="mb-3">
           <label class="form-label">Name</label>
-          <input type="text" class="form-control" [(ngModel)]="product.name" name="name" required>
+          <input type="text" class="form-control" formControlName="title" name="name" required>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Price</label>
-          <input type="number" class="form-control" [(ngModel)]="product.price" name="price" required>
+          <input type="number" class="form-control" formControlName="price" name="price" required>
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label">Image URL</label>
-          <input type="text" class="form-control" [(ngModel)]="product.image" name="image" required>
-        </div>
+          <input type="text" class="form-control" formControlName="" name="image" required>
+        </div> -->
 
         <div class="mb-3">
           <label class="form-label">Description</label>
-          <input type="text" class="form-control" [(ngModel)]="product.description" name="description" required>
+          <input type="text" class="form-control" formControlName="description" name="description" required>
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <select name="category_id" id="" class="form-select">
             <option value="0">-- Select Category --</option>
             @for (Category of categories; track $index) {
@@ -76,7 +51,7 @@
 
             }
           </select>
-        </div>
+        </div> -->
 
       </div>
 
