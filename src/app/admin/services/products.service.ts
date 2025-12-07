@@ -24,7 +24,7 @@ export class ProductsService {
       );
   }
 
-addProducts(data: IdummyProducts) {
+addProducts(data:FormData) {
   return this._httpClient
     .post<IdummyProducts>(`${environment.baseUrl2}/products/add`, data)
     .pipe(
@@ -34,6 +34,14 @@ addProducts(data: IdummyProducts) {
 })
 
     );
+}
+
+DeleteProduct(id:number):Observable<IdummyProducts>{
+return this._httpClient.delete<IdummyProducts>(`${environment.baseUrl2}/products/${id}`);
+}
+
+UpdateProduct(id:number,data:[]):Observable<IdummyProducts>{
+return this._httpClient.put<IdummyProducts>(`${environment.baseUrl2}/products/${id}`,data);
 }
 
 

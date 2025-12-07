@@ -21,12 +21,12 @@
         <div *ngFor="let p of products; let i = index"
              class="carousel-item"
              [class.active]="i === 0">
-          <img [src]="p.image"
+          <img [src]="p.thumbnail"
                alt="Product slide"
                class="d-block w-100 object-fit-cover"
                style="height: 420px;">
           <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
-            <h3>{{ p.name }}</h3>
+            <h3>{{ p.title }}</h3>
             <p>{{ p.description | slice:0:100 }}...</p>
             <a class="btn btn-primary btn-sm"
                [routerLink]="['/product', p.id]">

@@ -1,25 +1,81 @@
 <div class="table-responsive">
-<app-add-product></app-add-product>
+  <app-add-product></app-add-product>
   <table class="table table-bordered table-hover mt-3 align-middle text-center">
-      <thead class="table-dark">
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Image</th>
-          <th>Description</th>
-          <th>Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of dummyProduct; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ product.id }}</td>
-          <td>{{ product.title }}</td>
-          <td><img  [src]="product.thumbnail" width="60" height="40" style="object-fit: cover;"></td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.category }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of dummyProduct; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ product.id }}</td>
+        <td>{{ product.title }}</td>
+        <td><img [src]="product.thumbnail" width="60" height="40" style="object-fit: cover;"></td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.category }}</td>
+        <td>
+          <div class="row">
+            <div class="col-2 d-flex gap-2">
+              <button (click)="deleteProduct(product.id)" class="btn btn-danger btn-sm">Delete</button>
+              <button class="btn btn-success btn-sm"(click)="openEditModal(product)" data-bs-toggle="modal" data-bs-target="#editProductModal">Edit</button>
+            </div>
+          </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form [formGroup]="form"  class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Edit Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" formControlName="title" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Price</label>
+          <input type="number" class="form-control" formControlName="price" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Image</label>
+          <input type="file" class="form-control" (change)="onFileSelected($event)" accept="image/*">
+        </div>
+
+        <div class="mb-3" *ngIf="preview">
+          <label class="form-label">Preview</label><br>
+          <img [src]="preview" alt="preview" width="60" height="60" class="rounded border">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" class="form-control" formControlName="description" required>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button (click)="updateProduct()" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
   </div>
+</div>
+

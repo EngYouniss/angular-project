@@ -81,13 +81,13 @@
           <div class="row g-0 align-items-center">
             <!-- ✅ صورة المنتج -->
             <div class="col-4">
-              <img [src]="prod.image" class="img-fluid rounded-start" style="height: 100px; object-fit: cover;" alt="{{prod.name}}">
+              <img [src]="prod.thumbnail" class="img-fluid rounded-start" style="height: 100px; object-fit: cover;" alt="{{prod.title}}">
             </div>
 
             <!-- ✅ معلومات المنتج -->
             <div class="col-8">
               <div class="card-body p-2">
-                <h6 class="card-title mb-1">{{ prod.name }}</h6>
+                <h6 class="card-title mb-1">{{ prod.thumbnail }}</h6>
                 <p class="card-text text-muted mb-2">
                   <small>Price: {{ prod.price | currency }}</small>
                 </p>

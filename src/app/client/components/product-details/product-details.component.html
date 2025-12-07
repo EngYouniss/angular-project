@@ -3,8 +3,8 @@
 
     <div class="col-12 col-md-6">
       <div class="card shadow-sm border-0">
-        <img [src]="productDetails.image"
-             alt="{{ productDetails.name }}"
+        <img [src]="productDetails.thumbnail"
+             alt="{{ productDetails.title }}"
              class="card-img-top rounded-top"
              style="height: 350px; object-fit: cover;">
       </div>
@@ -14,7 +14,7 @@
       <div class="card shadow-sm border-0 h-100 p-4 d-flex flex-column">
 
         <h2 class="card-title fw-bold mb-3">
-          {{ productDetails.name }}
+          {{ productDetails.title }}
         </h2>
 
         <h4 class="text-primary fw-semibold mb-4">

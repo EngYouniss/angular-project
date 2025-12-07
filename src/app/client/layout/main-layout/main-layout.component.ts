@@ -15,32 +15,32 @@ import { FooterComponent } from "../components/footer/footer.component";
 export class HomeComponent {
 products:Iproducts[]=[
   {
-    name:'Iphone',
+    title:'Iphone',
     price: 1000,
-    image: 'https://picsum.photos/200/300',
+    thumbnail: 'https://picsum.photos/200/300',
     description: 'High performance laptop with 16GB RAM and 512GB SSD.',
     category_id: 1
   }
   ,
   {
-    name:'Samsung Galaxy S21 Ultra',
+    title:'Samsung Galaxy S21 Ultra',
     price: 500,
-    image: 'https://picsum.photos/200/300',
+    thumbnail: 'https://picsum.photos/200/300',
     description: 'Latest smartphone with advanced features and sleek design.',
     category_id: 1
   },
   {
-    name:'tablet',
+    title:'tablet',
     price: 300,
-    image: 'https://picsum.photos/200/300?random=2',
+    thumbnail: 'https://picsum.photos/200/300?random=2',
     description: 'Portable tablet with a vibrant display and long battery life.',
     category_id: 2
 
   },
   {
-    name:'smartwatch',
+    title:'smartwatch',
     price: 200,
-    image: 'https://picsum.photos/200/300?random=3',
+    thumbnail: 'https://picsum.photos/200/300?random=3',
     description: 'Smartwatch with fitness tracking and notification features.',
     category_id: 3
   }

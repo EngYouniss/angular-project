@@ -19,13 +19,12 @@ export class AllProductsComponent implements OnInit {
   constructor(private _apiService: ApiServiceService,private _router:Router,private _cartService:CartService) { }
   products: Iproducts[] = [] as Iproducts[];
   ngOnInit(): void {
-    this._apiService.getAllProducts().subscribe({
-      next: (data) => this.products = data,}
-    );
+   this.loadProducts()
   }
   loadProducts(): void {
     this._apiService.getAllProducts().subscribe({
       next: (data) => this.products = data,}
+      
     );
   }
 

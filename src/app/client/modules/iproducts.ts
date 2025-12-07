@@ -1,10 +1,10 @@
 export interface Iproducts {
   id?: number;
-  name:string;
+  title:string;
   price:number;
-  image:string;
+  thumbnail:string;
   description:string;
   'category_id'?: number;
-    quantity?: number; // 
+    quantity?: number; //
 
 }
